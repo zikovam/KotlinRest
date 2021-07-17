@@ -15,12 +15,23 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom("com.amazonaws:aws-xray-recorder-sdk-bom:2.9.1")
+    }
+}
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("com.amazonaws:aws-xray-recorder-sdk-core")
+    implementation("com.amazonaws:aws-xray-recorder-sdk-aws-sdk")
+    implementation("com.amazonaws:aws-xray-recorder-sdk-aws-sdk-instrumentor")
+    implementation("com.amazonaws:aws-xray-recorder-sdk-apache-http")
+    implementation("com.amazonaws:aws-xray-recorder-sdk-spring:2.9.0")
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

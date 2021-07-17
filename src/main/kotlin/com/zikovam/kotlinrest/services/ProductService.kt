@@ -13,7 +13,7 @@ class ProductService(val db: ProductRepository) {
         db.save(product)
     }
 
-    fun getProductByCategory(category: Long): Product{
-        return db.getProductByCategory(category)
+    fun getProductByCategory(category: Long): List<Product>{
+        return db.getProductsByCategory(category)
     }
 }

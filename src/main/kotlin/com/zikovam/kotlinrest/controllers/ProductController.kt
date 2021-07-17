@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("product")
 class ProductController(val service: ProductService) {
     @GetMapping("/{category}")
-    fun getById(@PathVariable category: Long) : Product {
+    fun getById(@PathVariable category: Long) : List<Product> {
         return service.getProductByCategory(category)
     }
 
