@@ -1,5 +1,6 @@
 package com.zikovam.kotlinrest.controllers
 
+import com.amazonaws.xray.spring.aop.XRayEnabled
 import com.zikovam.kotlinrest.entities.Product
 import com.zikovam.kotlinrest.services.ProductService
 import com.zikovam.kotlinrest.util.ProductDescription
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("product")
+@XRayEnabled
 class ProductController(val service: ProductService) {
     @GetMapping("/{category}")
     fun getById(@PathVariable category: Long) : List<Product> {

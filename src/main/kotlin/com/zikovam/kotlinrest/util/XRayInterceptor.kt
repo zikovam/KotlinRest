@@ -16,5 +16,7 @@ class XRayInspector : AbstractXRayInterceptor() {
     }
 
     @Pointcut("@within(com.amazonaws.xray.spring.aop.XRayEnabled) && bean(*)")
-    public override fun xrayEnabledClasses() {}
+    public override fun xrayEnabledClasses() {
+        println ("I am inside the class");
+    }
 }
